@@ -1,0 +1,15 @@
+{
+  "name": "FreeRTOS Posix Demo",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {}
+  },
+  "postCreateCommand": "sudo apt update && sudo apt install -y build-essential wget unzip && wget -O FreeRTOS.zip https://github.com/FreeRTOS/FreeRTOS-Kernel/archive/refs/heads/main.zip && unzip -j FreeRTOS.zip 'FreeRTOS-Kernel-main/*.c' -d FreeRTOS && unzip -j FreeRTOS.zip 'FreeRTOS-Kernel-main/include/*.h' -d FreeRTOS/include && unzip -j FreeRTOS.zip 'FreeRTOS-Kernel-main/portable/ThirdParty/GCC/Posix/*.c' -d FreeRTOS/portable && unzip -j FreeRTOS.zip 'FreeRTOS-Kernel-main/portable/ThirdParty/GCC/Posix/*.h' -d FreeRTOS/portable && unzip -j FreeRTOS.zip 'FreeRTOS-Kernel-main/portable/MemMang/heap_3.c' -d FreeRTOS/portable && rm FreeRTOS.zip",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools"
+      ]
+    }
+  }
+}
